@@ -1,0 +1,109 @@
+/* The styles for the elements */
+body { 
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 85%;
+    margin-left: 2em;
+    margin-right: 2em;
+    width: 400px;
+    background: #f9fafb;
+    color: #333;
+    line-height: 1.5;
+    border-radius: 8px;
+    padding: 1.5em;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+}
+h1 {     
+    font-size: 140%;
+    color: #1527a1;
+    margin-bottom: .5em;    
+    text-align: center;
+}
+h2 {     
+    font-size: 120%;
+    color: #1080c5;
+    margin-bottom: .5em;    
+}
+label {
+    float: left;
+    width: 7em;
+    margin-bottom: 0.5em;
+    font-weight: bold;
+    color: #00006a;
+}
+input[type="text"], input[type="email"] {  
+    width: 15em;
+    margin-left: 0.5em;    
+    margin-bottom: 0.5em;
+    padding: 0.4em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+input[type="text"]:focus, input[type="email"]:focus {
+    border-color: #1080c5;
+    outline: none;
+    box-shadow: 0 0 5px rgba(16,128,197,0.3);
+}
+span {
+    margin-left: 0.5em;    
+    margin-bottom: 0.5em;    
+    color: #555;
+}
+br {
+    clear: both;
+}
+
+/* The styles for the tables */
+table {
+    border: 1px solid #ddd;
+    border-collapse: collapse;
+    margin-top: 1em;
+    background: #0080c0;
+    width: 100%;
+}
+tr, td {
+    border: 1px solid #ddd;
+    text-align: left;
+    padding: .5em;
+}
+tr {
+    background: #1080c5;
+    color: #fff;
+    text-transform: uppercase;
+}
+tr:nth-child(even) {
+    background: #f3f3f3;
+}
+tr:hover {
+    background: #e9f5ff;
+}
+
+/* The styles for the classes */
+.pad_top {
+    padding-top: 0.25em;
+}
+.margin_left {
+    margin-left: 0.5em;
+}
+.align_left {
+    text-align: left;
+}
+.align_right {
+    text-align: right;
+}
+
+/* Submit button */
+input[type="submit"] {
+    background: #1080c5;
+    color: #fff;
+    padding: 0.5em 1em;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+input[type="submit"]:hover {
+    background: #0d6ea9;
+    transform: translateY(-2px);
+    box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+}
