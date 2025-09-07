@@ -71,11 +71,8 @@ tr {
     color: #fff;
     text-transform: uppercase;
 }
-tr:nth-child(even) {
-    background: #f3f3f3;
-}
 tr:hover {
-    background: #e9f5ff;
+    background: #0000a0;
 }
 
 /* The styles for the classes */
