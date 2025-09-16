@@ -7,7 +7,8 @@ import javax.servlet.http.*;
 import murach.business.User;
 import murach.data.UserIO;
 import murach.util.CookieUtil;
-
+import murach.data.ProductIO;
+import murach.business.Product;
 public class DownloadServlet extends HttpServlet {
 
     @Override
@@ -60,10 +61,14 @@ public class DownloadServlet extends HttpServlet {
 
     private String checkUser(HttpServletRequest request,
             HttpServletResponse response) {
+    	
+        ServletContext sc = getServletContext();
+    	String productPath = sc.getRealPath("WEB-INF/products.txt");
 
         String productCode = request.getParameter("productCode");
+        Product product = ProductIO.getProduct(productCode, productPath);
         HttpSession session = request.getSession();
-        session.setAttribute("productCode", productCode);
+        session.setAttribute("product", product);
         User user = (User) session.getAttribute("user");
 
         String url;
@@ -79,7 +84,6 @@ public class DownloadServlet extends HttpServlet {
             } 
             // if cookie exists, create User object and go to Downloads page
             else {
-                ServletContext sc = getServletContext();
                 String path = sc.getRealPath("/WEB-INF/EmailList.txt");
                 user = UserIO.getUser(emailAddress, path);
                 session.setAttribute("user", user);
@@ -129,8 +133,9 @@ public class DownloadServlet extends HttpServlet {
         response.addCookie(c2);
 
         // create and return a URL for the appropriate Download page
-        String productCode = (String) session.getAttribute("productCode");
-        String url = "/" + productCode + "_download.jsp";
+        Product product = (Product) session.getAttribute("product");
+     // build URL dựa vào product
+        String url = "/" + product.getCode() + "_download.jsp";
         return url;
     }
 

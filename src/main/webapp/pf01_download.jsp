@@ -1,3 +1,8 @@
+<%@ page import="murach.business.Product" %>
+<%
+    // Lấy product từ session
+    Product product = (Product) session.getAttribute("product");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,7 +14,7 @@
 
 <h1>Downloads</h1>
 
-<h2>Paddlefoot - The First CD</h2>
+<h2><%= product.getDescription() %></h2>
     
 <table>
 <tr>
@@ -18,11 +23,11 @@
 </tr>
 <tr>
     <td>64 Corvair</td>
-    <td><a href="/musicStore/sound/${productCode}/corvair.mp3">MP3</a></td>
+    <td><a href="<%= request.getContextPath() %>/sound/<%= product.getCode() %>/Corvair.mp3">MP3</a></td>
 </tr>
 <tr>
     <td>Whiskey Before Breakfast</td>
-    <td><a href="/musicStore/sound/${productCode}/whiskey.mp3">MP3</a></td>
+    <td><a href="<%= request.getContextPath() %>/sound/<%= product.getCode() %>/Whiskey.mp3">MP3</a></td>
 </tr>
 </table>
 

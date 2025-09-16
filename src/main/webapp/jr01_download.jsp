@@ -1,4 +1,10 @@
+<%@ page import="murach.business.Product" %>
+<%
+    // Lấy product từ session
+    Product product = (Product) session.getAttribute("product");
+%>
 <!DOCTYPE html>
+
 <html>
 <head>
     <meta charset="utf-8">
@@ -9,7 +15,7 @@
 
 <h1>Downloads</h1>
 
-<h2>Joe Rut - Genuine Wood Grained Finish</h2>
+<h2><%= product.getDescription() %></h2>
     
 <table>
 <tr>
@@ -18,11 +24,11 @@
 </tr>
 <tr>
     <td>Filter</td>
-    <td><a href="/musicStore/sound/${productCode}/filter.mp3">MP3</a></td>
+    <td><a href="<%= request.getContextPath() %>/sound/<%= product.getCode() %>/filter.mp3">MP3</a></td>
 </tr>
 <tr>
     <td>So Long Lazy Ray</td>
-    <td><a href="/musicStore/sound/${productCode}/so_long.mp3">MP3</a></td>
+    <td><a href="<%= request.getContextPath() %>/sound/<%= product.getCode() %>/SoLongLazyRay.mp3">MP3</a></td>
 </tr>
 </table>
 
